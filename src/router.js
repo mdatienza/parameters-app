@@ -7,9 +7,22 @@ const router = new Router({
   base: process.env.BASE_URL,
   routes: [
     {
+      path: '/',
+      redirect: 'login',
+      name: ''
+    },
+    {
       path: '/login',
       name: 'login',
       component: () => import(/* webpackChunkName: "about" */ './views/Login')
+    },
+    {
+      path: '/register',
+      name: 'register',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "about" */ './views/Register')
     },
     {
       path: '/student',
@@ -18,28 +31,6 @@ const router = new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ './views/Student'),
-      meta: {
-        requiresAuth: true
-      }
-    },
-    {
-      path: '/image-editor',
-      name: 'image-editor',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/ImageEditor'),
-      meta: {
-        requiresAuth: true
-      }
-    },
-    {
-      path: '/book',
-      name: 'book',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/Book'),
       meta: {
         requiresAuth: true
       }
@@ -67,12 +58,26 @@ const router = new Router({
       }
     },
     {
-      path: '/register',
-      name: 'register',
+      path: '/image-editor',
+      name: 'image-editor',
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/Register')
+      component: () => import(/* webpackChunkName: "about" */ './views/ImageEditor'),
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/book',
+      name: 'book',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "about" */ './views/Book'),
+      meta: {
+        requiresAuth: true
+      }
     }
   ]
 })
