@@ -1,0 +1,86 @@
+{
+  "name": "parameters-app",
+  "version": "1.0.0",
+  "description": "A Vue.js project",
+  "author": "",
+  "private": true,
+  "scripts": {
+    "dev": "node build/dev-server.js",
+    "build": "node build/build.js",
+    "start": "node server.js",
+    "serve": "vue-cli-service serve --mode dev",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.3.1",
+    "@progress/kendo-editor-vue-wrapper": "^2019.1.220",
+    "@progress/kendo-theme-default": "^3.3.1",
+    "@progress/kendo-ui": "^2019.1.220",
+    "@vue/eslint-config-standard": "^4.0.0",
+    "cropperjs": "^1.4.3",
+    "css-loader": "^2.1.0",
+    "express": "^4.16.4",
+    "firebase": "^5.8.2",
+    "font-awesome": "4.7.0",
+    "jimp": "^0.6.0",
+    "lodash": "^4.17.11",
+    "material-design-icons-iconfont": "^4.0.4",
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.23",
+    "normalize": "^0.3.1",
+    "normalize.css": "^8.0.1",
+    "pug": "^2.0.3",
+    "pug-loader": "^2.4.0",
+    "pug-plain-loader": "^1.0.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "vue": "^2.5.22",
+    "vue-cli-plugin-pug": "^1.0.7",
+    "vue-cli-plugin-vuetify": "^0.4.6",
+    "vue-image-crop-upload": "^2.5.0",
+    "vue-router": "^3.0.1",
+    "vue2-editor": "^2.6.6",
+    "vuefire": "^1.4.5",
+    "vuetify": "^1.5.0",
+    "webpack-bundle-analyzer": "^3.0.3"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.4.0",
+    "@vue/cli-plugin-eslint": "^3.4.0",
+    "@vue/cli-service": "^3.4.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.8.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "style-loader": "^0.23.1",
+    "vue-template-compiler": "^2.6.4"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "resolutions": {
+    "ajv": "6.8.1"
+  }
+}
