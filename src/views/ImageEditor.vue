@@ -13,6 +13,7 @@ v-content
   export default {
     data() {
       return {
+        //DEFINE BINDED VARIABLES
         data: {
           cropped: false,
           cropping: false,

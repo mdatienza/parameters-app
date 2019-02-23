@@ -11,8 +11,10 @@ v-layout
 </template>
 
 <script>
+//IMPORT GOOGLE FIREBASE AND VUE EDITOR [COMPONENT]
 import firebase from 'firebase'
 import { VueEditor } from 'vue2-editor'
+//SET YOUR DATABASE
 let blogList = firebase.database().ref('blog')
 
 export default {
@@ -25,6 +27,7 @@ export default {
   },
   data () {
     return {
+      //DEFINE BINDED VARIABLES
       newBlog: {
           content: null
       },
@@ -39,15 +42,17 @@ export default {
   },
   methods: {
     createBlog () {
+        //VALIDATE DATA
         if(this.newBlog['content'] === null){
           this.snackbar = true
           this.text='There are no blog to be posted'
           return
         }
+        //CREATE BLOG
         blogList.push(this.newBlog)
         this.snackbar = true
         this.text='Blog has been added successfully'
-
+        //CLEAR DATA
         this.newBlog['content'] = null
     }
   }

@@ -38,7 +38,9 @@
 </template>
 
 <script>
+//IMPORT GOOGLE FIREBASE
 import firebase from 'firebase'
+//SET YOUR DATABASE
 let studentdb = firebase.database().ref('student')
 export default {
   name: 'app',
@@ -47,36 +49,38 @@ export default {
   },
   data: () => {
     return {
-       dialog: false,
-       key: null,
-       snackbar: false,
-       y: 'top',
-       x: null,
-       mode: '',
-       timeout: 3000,
-       text: '',
-       select: null,
-       items: [
-          'BSIT',
-          'BSCS',
-          'BSIE',
-          'BSECE'
-       ],
-       newStudent: {
-          studentno: '',
-          name: '',
-          course: ''
-       },
-       headers: [
-          { text: 'Student No', align: 'center', value: 'studentno' },
-          { text: 'Name', align: 'center', value: 'name' },
-          { text: 'Course', align: 'center', value: 'course' },
-          { text: 'Action', align: 'center', value: '' }
-       ]
+      //DEFINE BINDED VARIABLES
+      dialog: false,
+      key: null,
+      snackbar: false,
+      y: 'top',
+      x: null,
+      mode: '',
+      timeout: 3000,
+      text: '',
+      select: null,
+      items: [
+        'BSIT',
+        'BSCS',
+        'BSIE',
+        'BSECE'
+      ],
+      newStudent: {
+        studentno: '',
+        name: '',
+        course: ''
+      },
+      headers: [
+        { text: 'Student No', align: 'center', value: 'studentno' },
+        { text: 'Name', align: 'center', value: 'name' },
+        { text: 'Course', align: 'center', value: 'course' },
+        { text: 'Action', align: 'center', value: '' }
+      ]
     }
   },
   methods: {
     closeDialog () {
+      //CLEAR DATA
       this.dialog = false
       this.key = null
       this.newStudent.studentno = null
@@ -85,14 +89,17 @@ export default {
     },
     createStudent () {
       if(this.newStudent.studentno === '' || this.newStudent.name === '' || this.newStudent.course === ''){
+        //VALIDATE DATA
         this.snackbar = true
         this.text = 'Please fill-up the information needed'
       }else{
+        //CREATE STUDENT
         studentdb.push(this.newStudent)
         this.closeDialog()
       }
     },
     showEditForm (student) {
+      //RETRIEVE DATA AND PUT TO DIALOG BOX
       this.key = student['.key']
       this.newStudent.studentno = student.studentno
       this.newStudent.name = student.name
@@ -101,9 +108,11 @@ export default {
     },
     updateStudent () {
       if(this.newStudent.studentno === '' || this.newStudent.name === '' || this.newStudent.course === ''){
+        //VALIDATE DATA
         this.snackbar = true
         this.text = 'Please fill-up the information needed'
       }else{
+        //UPDATE STUDENT
         studentdb.child(this.key).update({
           studentno: this.newStudent.studentno,
           name: this.newStudent.name,
@@ -113,6 +122,7 @@ export default {
       }
     },
     deleteStudent (student) {
+      //DELETE STUDENT
       studentdb.child(student['.key']).remove()
     }
   },

@@ -27,11 +27,13 @@
 </template>
 
 <script>
+//IMPORT GOOGLE FIREBASE
 import firebase from 'firebase'
 export default {
   name: 'login',
   data: () => {
     return {
+      //DEFINE BINDED VARIABLES
       email: null,
       password: null,
       confirmPassword: null,
@@ -46,21 +48,27 @@ export default {
   methods:{
     signUp () {
       if (this.password !== this.confirmPassword) {
+        //CHECK IF PASSWORD AND CONFIRM PASSWORD ARE MATCH
         this.snackbar = true
         this.text='Password does not match!'
         return
       }else if(this.email === null || this.password === null || this.confirmPassword === null){
+        //CHECK IF ENTRY ARE NOT NULL
         this.snackbar = true
         this.text='Please fill-up the information needed'
         return
       }
+      //CREATE USER
       firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(() => {
         //console.log(`user`, user)
+        //CLEAR DATA
         this.email = null
         this.password = null
         this.confirmPassword = null
+        //SHOW MESSAGE
         this.snackbar = true
         this.text='Your account has been created'
+        //PUSH TO LOGIN VUE
         let vm = this
         setTimeout(() => {
           vm.$router.push({name: 'login'})
@@ -72,7 +80,6 @@ export default {
     }
   },
   components: {
-
   }
 }
 </script>

@@ -12,10 +12,13 @@
 </template>
 
 <script>
+//IMPORT GOOGLE FIREBASE
 import firebase from 'firebase'
+//SET YOUR DATABASE
 let blogList = firebase.database().ref('blog')
 
 export default {
+  //DEFINE BINDED VARIABLES
   name: 'blog',
   firebase: {
     blogs: blogList
@@ -28,6 +31,7 @@ export default {
   },
   methods: {
     deleteBlog(blog) {
+      //DELETE BLOG
       blogList.child(blog['.key']).remove()
     }
   }

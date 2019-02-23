@@ -26,11 +26,13 @@
 </template>
 
 <script>
+//IMPORT GOOGLE FIREBASE
 import firebase from 'firebase'
 export default {
   name: 'login',
   data: () => {
     return {
+      //DEFINE BINDED VARIABLES
       email: null,
       password: null,
       snackbar: false,
