@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-toolbar(color="grey", @click="click",dense="", floating="")
+  v-toolbar(color="grey darken-5", @click="click",dense="", floating="")
     v-toolbar-items
       label.nav__button(for='file', title='Upload', role='button', v-if='!data.loaded')
        span.fa.fa-upload
@@ -12,7 +12,7 @@
       button.nav__button.nav__button--success(type='button', data-action='crop', title='OK (Enter)', v-if='data.cropping')
        span.fa.fa-check
       a.nav__button.nav__button--success(title='Download', :download='data.name', :href='data.url', v-if='downloadable && data.loaded')
-       span.fa.fa-download      
+       span.fa.fa-download
 </template>
 
 <script>

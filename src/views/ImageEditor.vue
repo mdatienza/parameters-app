@@ -24,7 +24,6 @@ v-content
         },
       };
     },
-
     methods: {
       change(action) {
         const { editor } = this.$refs;

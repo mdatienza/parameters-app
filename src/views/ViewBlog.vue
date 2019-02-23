@@ -1,11 +1,12 @@
 <template lang="pug">
  v-container(fluid, grid-list-md)
   v-layout(row,wrap)
-   v-flex(xs6, v-for="blog in blogs", :key="blog['.key']")
+   v-flex(sm6, v-for="blog in blogs", :key="blog['.key']")
     v-card
      v-card-title(primary-title="")
-      v-flex(xs12)
-       div(v-html="blog.content")
+      div
+       v-flex(xs12)
+        div(v-html="blog.content", class="cus-card")
      v-card-actions
       v-icon(color="red" @click="deleteBlog(blog)").white--text delete_forever
 </template>
@@ -33,5 +34,5 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style scoped>
 </style>

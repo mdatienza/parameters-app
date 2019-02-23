@@ -3,9 +3,11 @@ v-layout
  v-flex(xs12, sm10, offset-sm1, mt-5)
   #app
    vue-editor(v-model='newBlog.content')
-   v-btn(color="blue", @click="createBlog").white--text Add Post
+   v-btn(color="light-green", @click="createBlog").white--text Add Post
  v-snackbar(v-model='snackbar', :bottom="y === 'bottom'", :left="x === 'left'", :multi-line="mode === 'multi-line'", :right="x === 'right'", :timeout='timeout', :top="y === 'top'", :vertical="mode === 'vertical'")
   | {{ text }}
+  v-btn(dark="", flat="", @click="snackbar = false")
+   v-icon close
 </template>
 
 <script>
@@ -39,7 +41,7 @@ export default {
     createBlog () {
         if(this.newBlog['content'] === null){
           this.snackbar = true
-          this.text='There are no blog to be post'
+          this.text='There are no blog to be posted'
           return
         }
         blogList.push(this.newBlog)
@@ -52,5 +54,8 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style scoped>
+  #app{
+    margin:5px;
+  }
 </style>

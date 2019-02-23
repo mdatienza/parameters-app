@@ -15,7 +15,7 @@ import 'font-awesome/css/font-awesome.css'
 
 Vue.use(Vuetify, {
   theme: {
-    primary: '#1E88E5'
+    primary: '#43A047'
   }
 })
 
